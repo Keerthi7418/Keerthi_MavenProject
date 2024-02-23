@@ -1,6 +1,8 @@
 package com.great.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -8,6 +10,7 @@ public class Employee
 {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String employeeName;
 	private String employeeAddress;
@@ -19,6 +22,15 @@ public class Employee
 	public Employee(int id, String employeeName, String employeeAddress, String employeePhone, double employeeSalary) {
 		super();
 		this.id = id;
+		this.employeeName = employeeName;
+		this.employeeAddress = employeeAddress;
+		this.employeePhone = employeePhone;
+		this.employeeSalary = employeeSalary;
+	}
+
+	public Employee(String employeeName, String employeeAddress, String employeePhone, double employeeSalary) {
+		super();
+		
 		this.employeeName = employeeName;
 		this.employeeAddress = employeeAddress;
 		this.employeePhone = employeePhone;

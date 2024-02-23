@@ -54,7 +54,7 @@ public class EmployeeController
 	}
 
 	@PostMapping("/employee-insert")
-	public String addEmployeeInsert(@RequestParam int id, @RequestParam String employeeName,
+	public String addEmployeeInsert(@RequestParam String employeeName,
 			@RequestParam String employeeAddress, @RequestParam String employeePhone, @RequestParam double employeeSalary,
 			Model data) 
 	{
@@ -66,7 +66,7 @@ public class EmployeeController
 		{
 			Transaction tx = session.beginTransaction();
 
-			Employee e1 = new Employee(id, employeeName, employeeAddress, employeePhone, employeeSalary);
+			Employee e1 = new Employee(employeeName, employeeAddress, employeePhone, employeeSalary);
 			
 			session.save(e1); 
 
